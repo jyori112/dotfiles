@@ -1,0 +1,2 @@
+LOCAL=$HOME/local
+TRASH_PATH=$HOME/.trash

@@ -1,0 +1,60 @@
+{
+    "editor.renderIndentGuides": true,
+    "editor.fontSize": 11,
+
+    "editor.wordWrap": "on",
+
+    "files.trimTrailingWhitespace": true,
+
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.easymotion": true,
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["J"],
+            "after": ["1", "0", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["1", "0", "k"]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+        }
+    ],
+
+    "workbench.editor.enablePreview": false,
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk"
+        },
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        }
+    ],
+
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.lintOnSave": true,
+
+    "python.jediEnabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "python.linting.pylintArgs": [
+        "--disable=C0111,C0103,C0412",
+        "--extension-pkg-whitelist=numpy,marisa_trie,wikipedia2vec",
+        "--generated-members=torch.*,numpy.*,wikipedia2vec.*",
+        "--max-line-length=120",
+        "--ignored-classes=argsparse.Namespace,contextlib.closing"
+    ],
+    "python.languageServer": "Microsoft"
+}
