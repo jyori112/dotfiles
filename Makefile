@@ -137,6 +137,10 @@ ghq: homebrew
 sl: homebrew
 	brew install sl
 
+########## MacTex ##########
+mactex: homebrew
+	brew install --cask mactex-no-gui
+
 ##############################
 #	configure applications
 ##############################
