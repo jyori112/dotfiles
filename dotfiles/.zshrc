@@ -59,10 +59,5 @@ source $ZSH_D/pyenv.zsh
 # Config nvim related
 source $ZSH_D/nvim.zsh
 
-########## Local Configuration ##########
-if [ -f $LOCAL_ZSH_D/config.zsh ]; then
-    source $LOCAL_ZSH_D/config.zsh
-fi
-
 ########## Start powerlevel ##########
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

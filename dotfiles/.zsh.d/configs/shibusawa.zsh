@@ -1,1 +1,0 @@
-export LOCAL=$HOME/local
