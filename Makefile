@@ -155,7 +155,8 @@ macos: \
 	homebrew \
 	git \
 	vscode \
-	karabiner
+	karabiner \
+	mactex
 
 cui: \
 	zsh \
