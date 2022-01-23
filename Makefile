@@ -141,6 +141,10 @@ sl: homebrew
 mactex: homebrew
 	brew install --cask mactex-no-gui
 
+########## Go ##########
+go: homebrew
+	brew install go
+
 ##############################
 #	configure applications
 ##############################
