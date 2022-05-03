@@ -1,4 +1,5 @@
 SHELL = /bin/zsh
+ZSH_D = $(HOME)/.zsh.d
 
 ##############################
 #	Configuration
@@ -85,6 +86,18 @@ $(PYENV_ROOT)/plugins/pyenv-update:
 
 pyenv: $(PYENV_ROOT) $(PYENV_ROOT)/plugins/pyenv-virtualenv
 
+########## rbenv ##########
+rbenv: homebrew
+	brew install rbenv ruby-build
+
+########## chromedriver ##########
+chromedriver: homebrew
+	brew install chromedriver
+
+########## openjdk ##########
+openjdk: homebrew
+	brew install openjdk@8
+
 ########## neovim ##########
 install-neovim-on-macos: homebrew
 	$(LOG) installing neovim
@@ -156,7 +169,9 @@ macos: \
 	git \
 	vscode \
 	karabiner \
-	mactex
+	mactex \
+	pyenv \
+	rbenv
 
 cui: \
 	zsh \

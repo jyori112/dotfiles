@@ -37,7 +37,7 @@ fi
 
 ########## Set PATH and LD_LIBRARY PATH ##########
 # Default setting
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
 
 # Local install setting
 export LD_LIBRARY_PATH=$LOCAL/lib:$LD_LIBRARY_PATH
@@ -56,8 +56,20 @@ source $ZSH_D/cuda.zsh
 # Config pyenv related
 source $ZSH_D/pyenv.zsh
 
+# Config rbenv related
+source $ZSH_D/rbenv.zsh
+
+# Config openjdk related
+source $ZSH_D/openjdk.zsh
+
 # Config nvim related
 source $ZSH_D/nvim.zsh
 
+# Config direnv related
+source $ZSH_D/direnv.zsh
+
 ########## Start powerlevel ##########
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#####
+export PATH=$HOME/.nodebrew/current/bin:$PATH
