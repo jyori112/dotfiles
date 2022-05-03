@@ -222,27 +222,14 @@ function peco_select_history() {
 zle -N peco_select_history
 bindkey '^r' peco_select_history
 
-# Make copy safe
-#alias cp='safe_cp'
-#alias cpcp='command cp'
-#
-#function safe_cp() {
-#    if [ -e $2 ]; then
-#        echo -n "The destination $2 exists.  Are you sure? (Y/n): "
-#    fi
-#
-#    local ch
-#
-#    while : ; do
-#        read ch
-#
-#        if [ "${ch}" = "Y" ]; then
-#            command cp $1 $2
-#            break
-#        elif [ "${ch}" = "n" ] || [ "${ch}" = "N" ]; then
-#            break
-#        else
-#            echo -n "(Y/n): "
-#        fi
-#    done
-#}
+function change-codecommit-credential(){
+  local selected_dir=$(find ~ -maxdepth 1 |grep netrc | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+	  cp ${selected_dir} ~/.netrc
+	fi
+	echo '-----------------------------'
+	echo 'view current "~/.netrc" settings'
+	echo '-----------------------------'
+	sed -n 1,3p ~/.netrc
+}
+alias ccc='change-codecommit-credential'
