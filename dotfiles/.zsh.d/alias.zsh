@@ -135,7 +135,7 @@ function safe_rm() {
         return 1
     fi
 
-    trash_dir=$TRASH_PATH/$(date +%Y%m%d/%H%M)
+    trash_dir=$TRASH_PATH/$(date +%Y%m%d/%H%M%S)
 
     if [ ! -e $trash_dir ]; then
         mkdir -p $trash_dir
