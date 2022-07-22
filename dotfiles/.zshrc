@@ -59,6 +59,8 @@ source $ZSH_D/pyenv.zsh
 # Config nvim related
 source $ZSH_D/nvim.zsh
 
+source $ZSH_D/sdkman.zsh
+
 ########## Start powerlevel ##########
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
