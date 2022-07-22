@@ -36,9 +36,6 @@ if [ -f $LOCAL_ZSH_D/setup.zsh ]; then
 fi
 
 ########## Set PATH and LD_LIBRARY PATH ##########
-# Default setting
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
-
 # Local install setting
 export LD_LIBRARY_PATH=$LOCAL/lib:$LD_LIBRARY_PATH
 export PATH=$LOCAL/bin:$PATH
@@ -51,13 +48,24 @@ source $ZSH_D/alias.zsh
 
 ########## Application specific configuration ##########
 # Config GPU related
-source $ZSH_D/cuda.zsh
+source $ZSH_D/specifics/cuda.zsh
 
 # Config pyenv related
-source $ZSH_D/pyenv.zsh
+source $ZSH_D/specifics/pyenv.zsh
+
+# Config rbenv related
+source $ZSH_D/specifics/rbenv.zsh
+
+# Config openjdk related
+source $ZSH_D/specifics/openjdk.zsh
 
 # Config nvim related
-source $ZSH_D/nvim.zsh
+source $ZSH_D/specifics/nvim.zsh
+
+# Config direnv related
+source $ZSH_D/specifics/direnv.zsh
+
+source $ZSH_D/specifics/nodebrew.zsh
 
 source $ZSH_D/sdkman.zsh
 
