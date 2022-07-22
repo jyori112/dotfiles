@@ -166,6 +166,10 @@ sdkman: homebrew
 graphviz: homebrew
 	brew install graphviz
 
+########## direnv ##########
+direnv: homebrew
+	brew install direnv
+
 ##############################
 #	configure applications
 ##############################
