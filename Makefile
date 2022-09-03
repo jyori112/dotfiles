@@ -170,6 +170,10 @@ graphviz: homebrew
 direnv: homebrew
 	brew install direnv
 
+########## node ##########
+node: homebrew
+	brew install node
+
 ##############################
 #	configure applications
 ##############################
