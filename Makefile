@@ -154,6 +154,26 @@ sl: homebrew
 mactex: homebrew
 	brew install --cask mactex-no-gui
 
+########## Go ##########
+go: homebrew
+	brew install go
+
+########## Java ##########
+sdkman: homebrew
+	curl -s "https://get.sdkman.io" | bash
+
+########## graphviz ##########
+graphviz: homebrew
+	brew install graphviz
+
+########## direnv ##########
+direnv: homebrew
+	brew install direnv
+
+########## node ##########
+node: homebrew
+	brew install node
+
 ##############################
 #	configure applications
 ##############################
