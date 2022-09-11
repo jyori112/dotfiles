@@ -1,5 +1,5 @@
 .memo
 .rsyncrc
 .vscode/
-data
+./data
 .make.log
