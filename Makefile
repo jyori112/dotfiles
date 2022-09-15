@@ -178,6 +178,9 @@ node: homebrew
 psql: homebrew
 	brew install libpq
 
+hammerspoon: homebrew
+	brew install hammerspoon --cask
+
 ##############################
 #	configure applications
 ##############################
