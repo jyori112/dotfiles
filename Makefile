@@ -174,6 +174,10 @@ direnv: homebrew
 node: homebrew
 	brew install node
 
+########## psql ##########
+psql: homebrew
+	brew install libpq
+
 ##############################
 #	configure applications
 ##############################
@@ -191,7 +195,8 @@ macos: \
 	karabiner \
 	mactex \
 	pyenv \
-	rbenv
+	rbenv \
+	sdkman
 
 cui: \
 	zsh \

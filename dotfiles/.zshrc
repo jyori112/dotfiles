@@ -67,7 +67,9 @@ source $ZSH_D/specifics/direnv.zsh
 
 source $ZSH_D/specifics/nodebrew.zsh
 
-source $ZSH_D/sdkman.zsh
+source $ZSH_D/specifics/sdkman.zsh
+
+source $ZSH_D/specifics/psql.zsh
 
 ########## Start powerlevel ##########
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
