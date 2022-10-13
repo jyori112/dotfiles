@@ -47,6 +47,8 @@ source $ZSH_D/design.zsh
 source $ZSH_D/alias.zsh
 
 ########## Application specific configuration ##########
+source $ZSH_D/specifics/brew.zsh
+
 # Config GPU related
 source $ZSH_D/specifics/cuda.zsh
 

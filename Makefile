@@ -40,36 +40,39 @@ $(HOME)/%: dotfiles/%
 ##############################
 #	Terminal
 ##############################
+########## Zsh Config ##########
+zsh: \
+	$(HOME)/.bash_profile \
+	$(HOME)/.zsh.d \
+	$(HOME)/.zshrc
+	$(LOG) changing my shell to zsh
+	if [ ! $$0 = /bin/zsh ]; then \
+		chsh -s /bin/zsh ; \
+	fi
+
 ########## Oh My Zsh ##########
-$(HOME)/.oh-my-zsh: git
+$(HOME)/.oh-my-zsh: git zsh
 	$(LOG) installing oh my zsh
 	$(GIT_CLONE) https://github.com/ohmyzsh/ohmyzsh.git $@ || true
 
 oh-my-zsh: $(HOME)/.oh-my-zsh
 
 ########## Powerlevel10k ##########
-$(HOME)/.oh-my-zsh/custom/themes/powerlevel10k: oh-my-zsh git
+$(HOME)/.oh-my-zsh/custom/themes/powerlevel10k: oh-my-zsh git $(HOME)/.p10k.zsh
 	$(LOG) installing powerlevel10k
 	$(GIT_CLONE) --depth=1 https://github.com/romkatv/powerlevel10k.git $@ || true
 
-power10k: \
-	$(HOME)/.oh-my-zsh/custom/themes/powerlevel10k \
-	$(HOME)/.p10k.zsh
-
-########## Zsh Config ##########
-zsh: \
-	$(HOME)/.bash_profile \
-	power10k \
-	$(HOME)/.zsh.d \
-	$(HOME)/.zshrc
+power10k: $(HOME)/.oh-my-zsh/custom/themes/powerlevel10k
 
 ##############################
 #	Install applications
 ##############################
 ########## homebrew ##########
-homebrew:
-	$(LOG) installing homebrew
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+homebrew: zsh
+	if [ ! command -v brew &> /dev/null ]; then \
+		$(LOG) installing homebrew; \
+		/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+	fi
 
 ########## pyenv ##########
 $(PYENV_ROOT): git
@@ -105,14 +108,14 @@ install-neovim-on-macos: homebrew
 
 neovim-install: install-neovim-on-$(OSNAME)
 
-setup-pyenv4neovim-py3: install-neovim install-pyenv
+setup-pyenv4neovim-py3: neovim-install pyenv
 	$(LOG) Creating environment for neovim in python3
 	pyenv install $(NEOVIM_PY3_VERSION)
 	pyenv virtualenv $(NEOVIM_PY3_VERSION) neovim-py3
 	$(LOG) Installing neovim package
 	pyenv shell neovim-py3 && pip install neovim
 
-setup-pyenv4neovim-py2: install-neovim install-pyenv
+setup-pyenv4neovim-py2: neovim-install pyenv
 	$(LOG) Creating environment for neovim in python2
 	pyenv install $(NEOVIM_PY2_VERSION)
 	pyenv virtualenv $(NEOVIM_PY2_VERSION) neovim-py2
@@ -121,7 +124,7 @@ setup-pyenv4neovim-py2: install-neovim install-pyenv
 
 setup-pyenv4neovim: setup-pyenv4neovim-py3 setup-pyenv4neovim-py2
 
-neovim: install-neovim setup-pyenv4neovim
+neovim: neovim-install setup-pyenv4neovim
 
 ########## git ##########
 install-git-on-ubuntu:
@@ -192,14 +195,18 @@ configure-matplotlib: $(HOME)/.config/matplotlib
 ##############################
 macos: \
 	zsh \
+	power10k \
 	homebrew \
 	git \
 	vscode \
 	karabiner \
-	mactex \
 	pyenv \
 	rbenv \
-	sdkman
+	direnv \
+	sdkman \
+	hammerspoon \
+	neovim
+
 
 cui: \
 	zsh \
