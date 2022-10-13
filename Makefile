@@ -108,21 +108,12 @@ install-neovim-on-macos: homebrew
 
 neovim-install: install-neovim-on-$(OSNAME)
 
-setup-pyenv4neovim-py3: neovim-install pyenv
+setup-pyenv4neovim: neovim-install pyenv
 	$(LOG) Creating environment for neovim in python3
-	pyenv install $(NEOVIM_PY3_VERSION)
-	pyenv virtualenv $(NEOVIM_PY3_VERSION) neovim-py3
+	pyenv install -s $(NEOVIM_PY3_VERSION) || true
+	pyenv virtualenv $(NEOVIM_PY3_VERSION) neovim-py3 || true
 	$(LOG) Installing neovim package
-	pyenv shell neovim-py3 && pip install neovim
-
-setup-pyenv4neovim-py2: neovim-install pyenv
-	$(LOG) Creating environment for neovim in python2
-	pyenv install $(NEOVIM_PY2_VERSION)
-	pyenv virtualenv $(NEOVIM_PY2_VERSION) neovim-py2
-	$(LOG) Installing neovim package
-	pyenv shell neovim-py2 && pip install neovim
-
-setup-pyenv4neovim: setup-pyenv4neovim-py3 setup-pyenv4neovim-py2
+	PYENV_VERSION=neovim-py3 pyenv exec pip install neovim
 
 neovim: neovim-install setup-pyenv4neovim
 
@@ -148,6 +139,10 @@ karabiner: $(HOME)/.config/karabiner homebrew
 ########## GHQ ##########
 ghq: homebrew
 	brew install ghq
+
+########## gh ##########
+gh: homebrew
+	brew install gh
 
 ########## SL ##########
 sl: homebrew
@@ -205,7 +200,9 @@ macos: \
 	direnv \
 	sdkman \
 	hammerspoon \
-	neovim
+	neovim \
+	gh \
+	ghq
 
 
 cui: \
