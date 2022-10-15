@@ -180,8 +180,13 @@ node: homebrew
 psql: homebrew
 	brew install libpq
 
+########## hammerspoon ##########
 hammerspoon: homebrew $(HOME)/.hammerspoon
 	brew install hammerspoon --cask
+
+########## postico ##########
+postico: homebrew
+	brew install postico --cask
 
 ##############################
 #	configure applications
@@ -207,7 +212,8 @@ macos: \
 	hammerspoon \
 	neovim \
 	gh \
-	ghq
+	ghq \
+	postico
 
 
 cui: \
