@@ -74,6 +74,10 @@ homebrew: zsh
 		/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
 	fi
 
+########## homebrew ##########
+peco: homebrew
+	brew install peco
+
 ########## pyenv ##########
 $(PYENV_ROOT): git
 	$(LOG) Installing pyenv
@@ -190,6 +194,7 @@ configure-matplotlib: $(HOME)/.config/matplotlib
 ##############################
 macos: \
 	zsh \
+	peco \
 	power10k \
 	homebrew \
 	git \

@@ -9,7 +9,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "Left", function()
     f.w = max.w / 2
     f.h = max.h
     win:setFrame(f)
-  end)
+end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
     local win = hs.window.focusedWindow()
@@ -22,7 +22,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "Right", function()
     f.w = max.w / 2
     f.h = max.h
     win:setFrame(f)
-  end)
+end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "M", function()
     local win = hs.window.focusedWindow()
@@ -34,5 +34,10 @@ hs.hotkey.bind({"cmd", "ctrl"}, "M", function()
     f.y = max.y
     f.w = max.w
     f.h = max.h
-    win:setFrame(f)
-  end)
+win:setFrame(f)
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "N", function()
+    local win = hs.window.focusedWindow()
+    win:moveToScreen(win:screen():next())
+end)
