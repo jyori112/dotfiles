@@ -92,6 +92,8 @@ $(PYENV_ROOT)/plugins/pyenv-update:
 	$(GIT_CLONE) git://github.com/yyuu/pyenv-update.git $@ || true
 
 pyenv: $(PYENV_ROOT) $(PYENV_ROOT)/plugins/pyenv-virtualenv
+	pyenv install 3.10.8
+	pyenv global 3.10.8
 
 ########## rbenv ##########
 rbenv: homebrew
@@ -135,6 +137,10 @@ git: install-git-on-$(OSNAME) configure-git
 ########## VSCode ##########
 vscode: $(HOME)/code homebrew
 	brew install visual-studio-code --cask
+	defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+	defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+	defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
+	defaults delete -g ApplePressAndHoldEnabled
 
 ########## karabiner ##########
 karabiner: $(HOME)/.config/karabiner homebrew
@@ -172,10 +178,6 @@ graphviz: homebrew
 direnv: homebrew
 	brew install direnv
 
-########## node ##########
-node: homebrew
-	brew install node
-
 ########## psql ##########
 psql: homebrew
 	brew install libpq
@@ -187,6 +189,15 @@ hammerspoon: homebrew $(HOME)/.hammerspoon
 ########## postico ##########
 postico: homebrew
 	brew install postico --cask
+
+########## nodebrew ##########
+nodebrew: homebrew
+	brew install nodebrew
+	mkdir -p ~/.nodebrew/src
+
+########## node ##########
+node: nodebrew
+	nodebrew install-binary latest
 
 ##############################
 #	configure applications
@@ -213,7 +224,8 @@ macos: \
 	neovim \
 	gh \
 	ghq \
-	postico
+	postico \
+	node
 
 
 cui: \
