@@ -199,6 +199,11 @@ nodebrew: homebrew
 node: nodebrew
 	nodebrew install-binary latest
 
+########## jq ##########
+jq: homebrew
+	brew install jq
+
+
 ##############################
 #	configure applications
 ##############################
@@ -225,7 +230,8 @@ macos: \
 	gh \
 	ghq \
 	postico \
-	node
+	node \
+	jq
 
 
 cui: \
