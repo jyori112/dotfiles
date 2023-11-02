@@ -27,6 +27,10 @@ alias dc='docker-compose'
 alias sr='screen -r'
 alias sS='screen -S'
 
+# peco
+alias pecopy='peco | pbcopy'
+alias pexec='peco | zsh'
+
 source $ZSH_D/utils/ccc.zsh
 source $ZSH_D/utils/peco_commands.zsh
 source $ZSH_D/utils/peco_dirs.zsh
