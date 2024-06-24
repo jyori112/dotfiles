@@ -22,3 +22,6 @@
 	root = ~/src
 [credential]
 	helper = store
+[maintenance]
+	repo = /Users/j.sakuma/src/github.com/netprotections/data-warehouse
+	repo = /Users/j.sakuma/src/github.com/netprotections/paleale-common

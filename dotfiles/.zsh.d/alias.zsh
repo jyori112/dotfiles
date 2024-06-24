@@ -31,6 +31,9 @@ alias sS='screen -S'
 alias pecopy='peco | pbcopy'
 alias pexec='peco | zsh'
 
+# copy previous command
+alias cpc='history| cut -c 8-| tail -n1| pbcopy'
+
 source $ZSH_D/utils/ccc.zsh
 source $ZSH_D/utils/peco_commands.zsh
 source $ZSH_D/utils/peco_dirs.zsh
